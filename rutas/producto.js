@@ -66,7 +66,6 @@ router.post('/agregarproducto', upload.single('file'), (req, res) => {
 
     console.log("lol")
     res.send('Producto Agregado')
-
 })
 
 

@@ -25,21 +25,20 @@ function AgregarProducto(){
             file: file
         }
 
-        Swal.fire({
-            title: 'Producto',
-            text: 'Producto agregado',
-            confirmButtonText: 'Ok'
-        })
-        .then(response => {
-            clienteAxios.post('api/producto/agregarproducto', body, )
+        clienteAxios.post('api/producto/agregarproducto', body, )
             .then(res => {
-                window.location = '/listaProductos'
+
+                Swal.fire({
+                    title: 'Producto',
+                    text: 'Producto agregado',
+                    confirmButtonText: 'Ok'
+                })
+                .then(response => {
+                    window.location = '/listaProductos'
+                })
+                
             })
             .then(err => {console.log(err)})
-            
-        })
-
-        
 
     }
 
