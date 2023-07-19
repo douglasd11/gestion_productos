@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
 import clienteAxios from '../components/axios/ClienteAxios'
 import Swal from 'sweetalert2'
+import { useNavigate } from 'react-router-dom';
 
 function AgregarProducto(){
+
+    const navigate = useNavigate()
 
     // HOOKS
     const[codigo, setCodigo] = useState('')
@@ -25,20 +28,19 @@ function AgregarProducto(){
             file: file
         }
 
-        clienteAxios.post('api/producto/agregarproducto', body, )
-            .then(res => {
-
-                Swal.fire({
-                    title: 'Producto',
-                    text: 'Producto agregado',
-                    confirmButtonText: 'Ok'
-                })
-                .then(response => {
-                    window.location = '/listaProductos'
-                })
-                
-            })
-            .then(err => {console.log(err)})
+        clienteAxios.post('api/producto/agregarproducto', body)
+        .then(res => {
+          Swal.fire({
+            title: 'Producto',
+            text: 'Producto agregado',
+            confirmButtonText: 'Ok'
+          }).then((res) => {
+            navigate('/listaProductos') // Realizar la redirección aquí
+          });
+        })
+        .catch(err => {
+          console.log(err);
+        });
 
     }
 
@@ -81,4 +83,4 @@ function AgregarProducto(){
     )
 }
 
-export default AgregarProducto
+export default AgregarProducto

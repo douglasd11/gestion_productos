@@ -23,18 +23,20 @@ code {
 
 .cards{
   display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
 }
 
 .card{
   width: 250px;
   max-width: 250px;
+  min-width: 250px;
   overflow: hidden;
   border: none;
   box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.151);
   text-align: center;
   cursor: pointer;
-  margin: 0px 10px;
-  margin-bottom: 10px;
+  margin: 10px;
 }
 
 .card:hover{
@@ -66,10 +68,10 @@ code {
 }
 
 .cont-img img{
-  width: 100%;
-  max-height: 200px;
+  width: 250px;
+  height: 200px;
   object-fit: cover;
-  object-position: 0px -50px;
+  /* object-position: 0px -50px; */
 }
 
 .card .categoria{
@@ -124,4 +126,14 @@ code {
 
 .nav-link:hover{
   color: aqua !important;
+}
+
+
+.btn-editar{
+  margin-bottom: 10px;
+}
+
+.cont-input-img{
+  display: flex;
+  justify-content: space-between;
 }

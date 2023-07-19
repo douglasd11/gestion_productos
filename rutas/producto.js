@@ -24,12 +24,17 @@ module.exports = router
 // ----------------------------------------------------------------
 
 const storage = multer.diskStorage({
+
     destination: (req, file, cb) => {
-        cb(null, './cliente/public/uploads')
+        if(file){
+            cb(null, './cliente/public/uploads')
+        }
     },
     filename: (req, file, cb) => {
-        const ext = file.originalname.split('.').pop()
-        cb(null, `${Date.now()}.${ext}`)
+        if(file){
+            const ext = file.originalname.split('.').pop()
+            cb(null, `${Date.now()}.${ext}`)
+        }
     }
 })
 
@@ -53,18 +58,23 @@ router.post('/agregarproducto', upload.single('file'), (req, res) => {
 
     //helperImg(req.file.path, `resize-${req.file.filename}`, 720)
 
+    let fileFinal = ""
+    
+    if(req.file){
+        fileFinal = req.file.filename
+    }
+
     const nuevoproducto = new ModeloProducto({
         codigo: req.body.codigo,
         categoria: req.body.categoria,
         nombre: req.body.nombre,
         precio: req.body.precio,
         descripcion: req.body.descripcion,
-        file: req.file.filename
+        file: fileFinal
     })
     
     nuevoproducto.save()
 
-    console.log("lol")
     res.send('Producto Agregado')
 })
 
@@ -73,5 +83,38 @@ router.post('/borrarproducto', async (req, res) => {
 
     await ModeloProducto.findOneAndDelete({codigo: req.body.codigo})
     res.send('Producto Eliminado')
+    
+})
+
+
+router.post('/editarproducto', async (req, res) => {
+    //console.log(req.body, "linea 91")
+    const producto = await ModeloProducto.findOne({ codigo: req.body.codigo })
+
+    res.send(producto)
+
+})
+
+router.post('/actualizarproducto', upload.single('file'), async (req, res) => {
+
+    let fileFinal = req.body.imagen
+    
+    if(req.file){
+        fileFinal = req.file.filename
+    }
+
+    console.log(req.body)
+
+    await ModeloProducto.findOneAndUpdate({ codigo: req.body.codigoAnterior },{
+        
+        codigo: req.body.codigo,
+        nombre: req.body.nombre,
+        categoria: req.body.categoria,
+        precio: req.body.precio,
+        descripcion: req.body.descripcion,
+        file: fileFinal
+    })
+
+    res.end('Producto actualizado')
     
 })
