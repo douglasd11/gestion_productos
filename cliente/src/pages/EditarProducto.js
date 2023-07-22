@@ -4,12 +4,14 @@ import { useState } from 'react'
 import axios from 'axios'
 import Swal from 'sweetalert2'
 import clienteAxios from '../components/axios/ClienteAxios'
+import { useNavigate } from 'react-router-dom';
 
 import Header from '../components/Header'
 
 function EditarProducto() {
 
     const params = useParams()
+    const navigate = useNavigate()
 
     
     const [codigo, setCodigo] = useState('')
