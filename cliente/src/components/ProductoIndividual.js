@@ -3,11 +3,13 @@ import axios from 'axios'
 import Swal from 'sweetalert2'
 
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 import clienteAxios from './axios/ClienteAxios'
 
 
 function ProductoIndividual({producto}){
 
+    const navigate = useNavigate()
     
     function borrarProducto(codigo){
 
