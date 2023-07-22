@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
+// import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import Swal from 'sweetalert2'
 
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
-import clienteAxios from './axios/ClienteAxios'
+// import clienteAxios from './axios/ClienteAxios'
 
 
 function ProductoIndividual({producto}){
@@ -64,7 +64,7 @@ function ProductoIndividual({producto}){
 
                 <p>{producto.codigo}</p>
 
-                <img src={ producto.file ? "https://api-productos-9hbc.onrender.com/"+ producto.file : "https://api-productos-9hbc.onrender.com/imagen_por_defecto.jpg" }></img>
+                <img alt='' src={ producto.file ? "https://api-productos-9hbc.onrender.com/"+ producto.file : "https://api-productos-9hbc.onrender.com/imagen_por_defecto.jpg" }></img>
 
             </div>
 

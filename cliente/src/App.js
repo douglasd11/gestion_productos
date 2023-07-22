@@ -6,9 +6,8 @@ import ListaProductos from './pages/ListaProductos';
 import AgregarProducto from './pages/AgregarProducto';
 import EditarProducto from './pages/EditarProducto';
 
-
 //import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { HashRouter as Router, Switch, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
 

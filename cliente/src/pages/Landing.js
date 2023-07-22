@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Header from '../components/Header'
+// import Header from '../components/Header'
 import { Link } from 'react-router-dom'
 
 function Landing(){
@@ -17,9 +17,10 @@ function Landing(){
                     </div>
 
                     <div className='cont-lista'>
-                        <img src='portatilg.png'></img>
+                        <img src='portatilg.png' alt=''></img>
                         <Link to="/listaproductos"><li>Ingresar</li></Link>
                     </div>
+                    
                 </div>
                 
 
