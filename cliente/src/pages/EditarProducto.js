@@ -25,7 +25,7 @@ function EditarProducto() {
     console.log(params.codigoproducto, "linea 17")
 
     useEffect(() => {
-        clienteAxios.post('api/producto/editarproducto', { codigo: params.codigoproducto })
+        axios.post('https://api-productos-9hbc.onrender.com/api/producto/editarproducto', { codigo: params.codigoproducto })
         .then(res => {
             console.log(res.data[0])
 
