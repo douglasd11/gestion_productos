@@ -275,3 +275,77 @@ code {
 .btn-editar-pr:hover{
   background-color: rgb(241, 43, 17);
 }
+
+.navbar-toggler{
+  background-color: white;
+}
+
+.navbar-collapse{
+  flex-grow: 0;
+}
+
+/* ------------------------------------------------------------- */
+
+
+@media (max-width: 768px) {
+  .borde{
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .cont-portada .cont-info,
+  .cont-portada .cont-lista{
+    width: auto;
+    margin: 0px;
+    padding: 20px 10px;
+  }
+
+  .cont-portada .cont-lista{
+    flex-direction: column-reverse;
+    padding-top: 10px;
+    padding-bottom: 0px;
+  }
+
+  
+
+  .cards{
+    justify-content: center;
+  }
+
+  .cont-input-img{
+    flex-direction: column;
+  }
+
+  .cont-input-img img{
+    margin-top: 10px;
+  }
+
+}
+
+@media (max-width: 290px) {
+  .borde{
+    flex-direction: column;
+    padding: 5px;
+  }
+
+  .cont-portada .cont-info,
+  .cont-portada .cont-lista{
+    width: auto;
+    margin: 0px;
+    padding: 20px 5px;
+    font-size: 0.9rem;
+  }
+
+  .cont-portada .cont-info h2{
+    font-size: 1.4rem;
+  }
+
+  .cont-portada .cont-lista img{
+    width: 250px;
+  }
+
+  .container{
+    padding: 0px;
+  }
+
+}
