@@ -7,8 +7,8 @@ const path = require('path')
 const archivoBD = require('./conexion')
 
 app.use(cors({
-    origin: "https://gestor-gaming-prods.onrender.com"
-    //origin: "http://localhost:3000/"
+    // origin: "https://gestor-gaming-prods.onrender.com"
+    origin: "http://localhost:3000/"
 }))
 
 
