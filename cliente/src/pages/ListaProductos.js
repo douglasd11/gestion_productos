@@ -17,7 +17,7 @@ function ListaProductos(){
 
     }, [])
 
-    let listaProductos = dataProductos.map(producto => {
+    let listaProductos = dataProductos.sort((a, b) => a.codigo - b.codigo).map(producto => {
         return(
             <ProductoIndividual key={producto._id} producto={producto}></ProductoIndividual>
         )

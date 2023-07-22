@@ -30,20 +30,32 @@ function AgregarProducto(){
             file: file
         }
 
-        clienteAxios.post('api/producto/agregarproducto', body)
-        .then(res => {
-          Swal.fire({
-            title: 'Producto',
-            text: 'Producto agregado',
-            confirmButtonText: 'Ok',
-            confirmButtonColor: '#F66A0D'
-          }).then((res) => {
-            navigate('/listaProductos') // Realizar la redirección aquí
-          });
-        })
-        .catch(err => {
-          console.log(err);
-        });
+        if(codigo!=='' && nombre!=='' &&categoria!=='' &&precio!=='' &&descripcion!==''){
+            
+            clienteAxios.post('api/producto/agregarproducto', body)
+            .then(res => {
+              Swal.fire({
+                title: 'Producto agregado',
+                icon: 'success',
+                confirmButtonText: 'Ok',
+                confirmButtonColor: '#F66A0D'
+              }).then((res) => {
+                navigate('/listaProductos') // Realizar la redirección aquí
+              });
+            })
+            .catch(err => {
+              console.log(err);
+            });
+
+        }
+        else{
+            Swal.fire({
+                icon: 'warning',
+                title: 'Porfavor Rellene todos los campos',
+                confirmButtonText: 'Ok',
+                confirmButtonColor: '#F66A0D'
+            })
+        }
 
     }
 

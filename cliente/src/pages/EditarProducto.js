@@ -58,12 +58,14 @@ function EditarProducto() {
         
         console.log(actualizarproducto)
 
-        clienteAxios.post('api/producto/actualizarproducto', actualizarproducto)
+        if(codigo!=='' && nombre!=='' &&categoria!=='' &&precio!=='' &&descripcion!==''){
+
+            clienteAxios.post('api/producto/actualizarproducto', actualizarproducto)
             .then(res => {
                 console.log(res.data)
                 Swal.fire({
-                    title: 'Producto',
-                    text: 'Producto Editado',
+                    icon: 'success',
+                    title: 'Producto Editado',
                     confirmButtonText: 'Ok',
                     confirmButtonColor: '#F66A0D'
                 })
@@ -72,6 +74,15 @@ function EditarProducto() {
         
                 })
             })
+        }
+        else{
+            Swal.fire({
+                title: 'Porfavor Rellene todos los campos',
+                icon: 'warning',
+                confirmButtonText: 'Ok',
+                confirmButtonColor: '#F66A0D'
+            })
+        }
     }
 
     return (

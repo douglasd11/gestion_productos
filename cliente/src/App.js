@@ -15,8 +15,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Landing/>} exact></Route>
-        <Route path='/listaproductos' element={<ListaProductos></ListaProductos>} exact></Route>
-        <Route path='/agregarproducto' element={<AgregarProducto></AgregarProducto>} exact></Route>
+        <Route path='/listaproductos/' element={<ListaProductos></ListaProductos>} exact></Route>
+        <Route path='/agregarproducto/' element={<AgregarProducto></AgregarProducto>} exact></Route>
         <Route path='/editarproducto/:codigoproducto' element={<EditarProducto></EditarProducto>} exact></Route>
       </Routes>
     </BrowserRouter>
