@@ -23,7 +23,7 @@ function EditarProducto() {
     console.log(params.codigoproducto, "linea 17")
 
     useEffect(() => {
-        axios.post('http://localhost:5000/api/producto/editarproducto', { codigo: params.codigoproducto })
+        clienteAxios.post('api/producto/editarproducto', { codigo: params.codigoproducto })
         .then(res => {
             console.log(res.data[0])
 
@@ -106,7 +106,7 @@ function EditarProducto() {
                             <label className="form-label">Imagen</label>
                             <input type="file" className="form-control" onChange={(e) => {setFile(e.target.files[0])}}/>
                         </div>
-                        <img src={ imagen ? "http://localhost:5000/"+ imagen : "http://localhost:5000/imagen_por_defecto.jpg" }></img>
+                        <img src={ imagen ? "https://api-productos-9hbc.onrender.com/"+ imagen : "https://api-productos-9hbc.onrender.com/imagen_por_defecto.jpg" }></img>
                     </div>
 
                     <div className="mb-3">

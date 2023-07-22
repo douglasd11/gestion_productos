@@ -3,6 +3,7 @@ import axios from 'axios'
 import Swal from 'sweetalert2'
 
 import { Link } from 'react-router-dom'
+import clienteAxios from './axios/ClienteAxios'
 
 
 function ProductoIndividual({producto}){
@@ -10,7 +11,7 @@ function ProductoIndividual({producto}){
     
     function borrarProducto(codigo){
 
-        axios.post('api/producto/borrarProducto', {codigo})
+        clienteAxios.post('api/producto/borrarProducto', {codigo})
         
         console.log(codigo, "eliminado linea")
         Swal.fire({
@@ -60,7 +61,7 @@ function ProductoIndividual({producto}){
 
                 <p>{producto.codigo}</p>
 
-                <img src={ producto.file ? "http://localhost:5000/"+ producto.file : "http://localhost:5000/imagen_por_defecto.jpg" }></img>
+                <img src={ producto.file ? "https://api-productos-9hbc.onrender.com/"+ producto.file : "https://api-productos-9hbc.onrender.com/imagen_por_defecto.jpg" }></img>
 
             </div>
 
