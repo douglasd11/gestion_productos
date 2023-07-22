@@ -92,6 +92,7 @@ router.post('/agregarproducto', upload.single('file'), (req, res) => {
 router.post('/borrarproducto', async (req, res) => {
 
     await ModeloProducto.findOneAndDelete({codigo: req.body.codigo})
+    console.log("producto eliminado api: ", req.body.codigo)
     res.send('Producto Eliminado')
     
 })

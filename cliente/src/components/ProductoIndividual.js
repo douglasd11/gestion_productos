@@ -13,9 +13,10 @@ function ProductoIndividual({producto}){
     
     function borrarProducto(codigo){
 
-        clienteAxios.post('api/producto/borrarProducto', {codigo})
+        clienteAxios.post('api/producto/borrarproducto', {codigo})
         
         console.log(codigo, "eliminado linea")
+
         Swal.fire({
             title: 'Producto',
             text: 'Producto Eliminado',
