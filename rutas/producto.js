@@ -4,6 +4,9 @@ const router = express.Router()
 const multer = require('multer')
 const sharp = require('sharp')
 
+const path = require('path')
+const fs = require('fs')
+
 const mongoose = require('mongoose')
 const eschema = mongoose.Schema
 
@@ -25,11 +28,7 @@ module.exports = router
 
 const storage = multer.diskStorage({
 
-    destination: (req, file, cb) => {
-        if(file){
-            cb(null, './cliente/public/uploads')
-        }
-    },
+    destination: path.join(__dirname, '../uploads/'),
     filename: (req, file, cb) => {
         if(file){
             const ext = file.originalname.split('.').pop()
@@ -40,17 +39,28 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage })
 
-const helperImg = (filePath, filename, size = 900) => {
-    return sharp(filePath)
-        .resize(size)
-        .toFile(`./cliente/public/uploads/${filename}`)
-}
+// const helperImg = (filePath, filename, size = 900) => {
+//     return sharp(filePath)
+//         .resize(size)
+//         .toFile(`./cliente/public/uploads/${filename}`)
+// }
 
 
 router.get('/obtenerproductos', async (req, res) => {
 
     const productos = await ModeloProducto.find()
-    res.send(productos)
+
+    let dataProductos = []
+
+    productos.map((producto) => {
+
+        //console.log({...producto._doc, lol: "esto"})
+
+        // producto._doc.dataImagen = fs.readFileSync(path.join(__dirname, '../uploads/' + producto.file ))
+        dataProductos.push(producto)
+    })
+
+    res.send(dataProductos)
 })
 
 
