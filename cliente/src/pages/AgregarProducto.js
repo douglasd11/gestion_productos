@@ -40,7 +40,7 @@ function AgregarProducto(){
                 confirmButtonText: 'Ok',
                 confirmButtonColor: '#F66A0D'
               }).then((res) => {
-                navigate('/listaProductos') // Realizar la redirección aquí
+                navigate('/listaproductos') // Realizar la redirección aquí
               });
             })
             .catch(err => {

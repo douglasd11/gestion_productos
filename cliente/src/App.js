@@ -14,10 +14,10 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Landing/>} exact></Route>
-        <Route path='/listaproductos/' element={<ListaProductos></ListaProductos>} exact></Route>
-        <Route path='/agregarproducto/' element={<AgregarProducto></AgregarProducto>} exact></Route>
-        <Route path='/editarproducto/:codigoproducto' element={<EditarProducto></EditarProducto>} exact></Route>
+        <Route path='/' element={<Landing/>}></Route>
+        <Route path='/listaproductos' element={<ListaProductos></ListaProductos>}></Route>
+        <Route path='/agregarproducto' element={<AgregarProducto></AgregarProducto>}></Route>
+        <Route path='/editarproducto/:codigoproducto' element={<EditarProducto></EditarProducto>}></Route>
       </Routes>
     </BrowserRouter>
   );

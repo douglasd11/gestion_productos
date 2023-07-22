@@ -70,8 +70,7 @@ function EditarProducto() {
                     confirmButtonColor: '#F66A0D'
                 })
                 .then(response =>{
-                    window.location ='/listaProductos'
-        
+                    navigate('/listaproductos')
                 })
             })
         }
